@@ -1,7 +1,19 @@
+/**
+ * Java 1. HomeWork 1
+ *
+ * @author MadMopuse
+ * @version 24.03.2022 (fix after lesson two)
+ *
+ */
+
+
+
 public class HomeWorkApp {
     public static void main(String[] args) {
         printThreeWords();
-        checkSumSign();
+        System.out.println(checkSumSign(5,3));
+        System.out.println(checkSumSign(-3,3));
+        System.out.println(checkSumSign(-3,1));
         printColor();
         compareNumbers();
 
@@ -16,16 +28,8 @@ public class HomeWorkApp {
     //инициализируйте их любыми значениями, которыми захотите. Далее метод должен
     //просуммировать эти переменные, и если их сумма больше или равна 0, то вывести в консоль
     //сообщение “Сумма положительная”, в противном случае - “Сумма отрицательная”;
-    public static void checkSumSign() {
-        int a = 10;
-        int b = -100;
-        int t = a + b;
-        // if ( t >= 0) {
-        //    System.out.println("Сумма положительная");
-        //} else {
-        //    System.out.println("Сумма отрицательная");
-        //}
-        System.out.println(a + b >= 0? "Сумма положительная" : "Сумма отрицательная");
+    public String checkSumSign(int a, int b) {
+        return (a + b >= 0? "Сумма положительная" : "Сумма отрицательная");
     }
     //Создайте метод printColor() в теле которого задайте int переменную value и инициализируйте
     //ее любым значением. Если value меньше 0 (0 включительно), то в консоль метод должен
@@ -42,6 +46,7 @@ public class HomeWorkApp {
         else {
             System.out.println("Зеленый");
         }
+        //System.out.println("Красный")
     }
     //Создайте метод compareNumbers(), в теле которого объявите две int переменные a и b, и
     //инициализируйте их любыми значениями, которыми захотите. Если a больше или равно b, то
@@ -49,10 +54,6 @@ public class HomeWorkApp {
     public static void compareNumbers() {
         int a = 1;
         int b = 13;
-        if ( a >= b) {
-            System.out.println("a >= b");
-        } else {
-            System.out.println("a <= b");
-        }
+            System.out.println(a >= b? "a >= b" : "a <= b");
     }
 }
