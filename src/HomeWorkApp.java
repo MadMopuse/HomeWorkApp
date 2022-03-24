@@ -20,22 +20,23 @@ public class HomeWorkApp {
         int a = 10;
         int b = -100;
         int t = a + b;
-        if ( t >= 0) {
-            System.out.println("Сумма положительная");
-        } else {
-            System.out.println("Сумма отрицательная");
-        }
+        // if ( t >= 0) {
+        //    System.out.println("Сумма положительная");
+        //} else {
+        //    System.out.println("Сумма отрицательная");
+        //}
+        System.out.println(a + b >= 0? "Сумма положительная" : "Сумма отрицательная");
     }
     //Создайте метод printColor() в теле которого задайте int переменную value и инициализируйте
     //ее любым значением. Если value меньше 0 (0 включительно), то в консоль метод должен
     //вывести сообщение “Красный”, если лежит в пределах от 0 (0 исключительно) до 100 (100
     //включительно), то “Желтый”, если больше 100 (100 исключительно) - “Зеленый”;
     public static void printColor() {
-        int value = 101;
+        int value = -10;
         if ( value <= 0) {
             System.out.println("Красный");
         }
-        else if ( value <= 100 && value >0 ) {
+        else if ( value <= 100) {
             System.out.println("Желтый");
         }
         else {
