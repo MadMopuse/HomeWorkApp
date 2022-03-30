@@ -1,5 +1,5 @@
 /**
- * Java 1. HomeWork 1
+ * Java 1. HomeWork 2
  *
  * @author MadMopuse
  * @version 27.03.2022 (Home work №2)
@@ -7,17 +7,17 @@
  */
 public class HomeWorkTwo {
     public static void main(String[] args) {
-        //System.out.println(isSumBetween10and20( 0, 20)); // использовалось для проверки в консоли, перед коммитом
+        System.out.println(isSumBetween10and20( 0, 20)); // использовалось для проверки в консоли, перед коммитом
         //законментить или удалить //в условии не сказанно вызывать из main
-        //negativeOrPositiveWithIn0( 5); //в условии не сказанно вызывать из main
-        //System.out.println(positiveOrNegative( 0));//в условии не сказанно вызывать из main
-        //printStringsNumberTimes("Stroca", 5 );//в условии не сказанно вызывать из main
-        //System.out.println(countLeapYear(1000));//в условии не сказанно вызывать из main
+        negativeOrPositiveWithIn0( 5); //в условии не сказанно вызывать из main
+        System.out.println(positiveOrNegative( 0));//в условии не сказанно вызывать из main
+        printStringsNumberTimes("Stroca", 5 );//в условии не сказанно вызывать из main
+        System.out.println(countLeapYear(1000));//в условии не сказанно вызывать из main
     }
     //Написать метод, принимающий на вход два целых числа и проверяющий, что их сумма лежит в пределах от 10 до 20
     //(включительно), если да – вернуть true, в противном случае – false.
     static boolean isSumBetween10and20(int a, int b) {
-        return (a + b > 10 & a + b <= 20); // если одно из значений будет false - return вернет false
+        return (a + b >= 10 & a + b <= 20); // если одно из значений будет false - return вернет false
     }
 
     //Написать метод, которому в качестве параметра передается целое число, метод должен напечатать в консоль,
