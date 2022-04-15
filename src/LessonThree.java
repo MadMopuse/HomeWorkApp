@@ -7,8 +7,8 @@
  */
 public class LessonThree {
     public static void main(String[] args) {
-       int[] arr = new int[5];
-       // int [] arr = {1, 22, 333, 4444, 55555};
+       //int[] arr = new int[5];
+       int [] arr = {1, 22, 333, 4444, 55555};
        for (int i = 0; i < 5; i++) {
            System.out.println(arr[i]);
        }
