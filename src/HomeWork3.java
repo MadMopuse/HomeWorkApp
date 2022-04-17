@@ -4,29 +4,31 @@ import java.util.Arrays;
  * Java 1. Home Lesson Three
  *
  * @author MadMopuse
- * @version 30.03.2022 (Home Lesson Three)
+ * @version 15.04.2022 (Home Lesson Three)
  *
  */
 public class HomeWork3 {
     public static void main(String[] args) {
 
         invertArray();
-        emptyTill100();
-        multiplyByTwo();
-        diagonals();
-        System.out.println( Arrays.toString(twoArguments(5 , 3)));
-        minMaxSearch();
+       // emptyTill100();
+       // multiplyByTwo();
+       // diagonals();
+       // System.out.println( Arrays.toString(twoArguments(5 , 3)));
+       // minMaxSearch();
 
     }
 
     // Задать целочисленный массив, состоящий из элементов 0 и 1. Например: [ 1, 1, 0, 0, 1, 0, 1, 1, 0, 0 ].
     // С помощью цикла и условия заменить 0 на 1, 1 на 0;
     static void invertArray() {
-        int [] invertArray =  { 1, 1, 0, 0, 1, 0, 1, 1, 0, 0 };
-        for (int i = 0; i < invertArray.length; i++) {
+        int[] invertArray = {1, 1, 0, 0, 1, 0, 1, 1, 0, 0};
+        for ( int i = 0; i < invertArray.length; i++) {
             //System.out.println(i + " : " + invertArray[i]);
-            System.out.println(invertArray[i] == 0? "1" : "0");
+            //invertArray[i] = 1 - invertArray[i];
+            invertArray[i] = invertArray[i] == 1? 0 : 1;
         }
+        System.out.println(Arrays.toString(invertArray));
     }
 
     // Задать пустой целочисленный массив длиной 100. С помощью цикла заполнить его значениями 1 2 3 4 5 6 7 8 … 100;
