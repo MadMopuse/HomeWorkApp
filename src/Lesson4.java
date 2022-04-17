@@ -10,7 +10,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 
-class TicTacToe {
+class Lesson4 {
 
     //public static final char DOT_EMPTY = '•';
     Random random; //рандомиатор
@@ -18,12 +18,12 @@ class TicTacToe {
     char[] [] table; //двумерная таблица для записи крестиков.ноликов
 
     public static void main(String[] args) {
-        TicTacToe ttt = new TicTacToe() ;
+        Lesson4 ttt = new Lesson4() ;
         ttt.game();
         //new TicTacToe().game(); //вызов конструктора
     }
 
-    TicTacToe() {
+    Lesson4() {
         System.out.println("Constructor"); // если имя метода совпадает с названием класса
         // - это метод стратует автоматически сразу после создания объекта
         random = new Random();
