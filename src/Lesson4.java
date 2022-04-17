@@ -82,7 +82,7 @@ class Lesson4 {
             System.out.println("Enter x y [1..3]; ");
             x = scanner.nextInt() - 1;
             y = scanner.nextInt() - 1;
-            System.out.println(x + " " + y);
+            //System.out.println(x + " " + y);
         } while(!isCellValid(x, y));
         table[x][y] = 'x';
     }
@@ -103,8 +103,39 @@ class Lesson4 {
         return table[x][y] == '.';
     }
 
+    //Переделать проверку победы, чтобы она не была реализована просто набором условий,
+    //например, с использованием циклов
     boolean checkWin(char ch) {
-        if (table[0][0] == ch && table[0][1] == ch && table[0][2] == ch) return true;
+        for (int y = 0; y < 3; y++) {
+            boolean check1 = true;
+            for (int x = 0; x < 3; x++) {
+                check1 = table[x][y] == ch && check1;
+            }
+            if (check1)
+                return true;
+        }
+
+        for (int x = 0; x < 3; x++) {
+            boolean check2 = true;
+            for (int y = 0; y < 3; y++) {
+                check2 = table[x][y] == ch && check2;
+            }
+            if (check2)
+                return true;
+        }
+
+        boolean check3 = true;
+        for (int x = 0; x < 3; x++) {
+            check3 = table[x][x] == ch && check3;
+        }
+        if (check3)
+            return true;
+        if (table[0][2] == ch && table[1][1] == ch && table[2][0] == ch) return true;
+        return false;
+    }
+
+
+        /*if (table[0][0] == ch && table[0][1] == ch && table[0][2] == ch) return true;
         if (table[1][0] == ch && table[1][1] == ch && table[1][2] == ch) return true;
         if (table[2][0] == ch && table[2][1] == ch && table[2][2] == ch) return true;
 
@@ -115,8 +146,7 @@ class Lesson4 {
 
         if (table[0][0] == ch && table[1][1] == ch && table[2][2] == ch) return true;
         if (table[0][2] == ch && table[1][1] == ch && table[2][0] == ch) return true;
-        return false;
-    }
+        return false;*/
     boolean isTableFull() {
         for (int y = 0; y < 3; y++) {
             for (int x = 0; x < 3; x++) {
