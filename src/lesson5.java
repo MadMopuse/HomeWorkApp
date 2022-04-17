@@ -16,6 +16,9 @@ public class lesson5 {
                 Employee("Leonid", 150000, "middle QA Engineer", 36);
         //employee2.salary = 15000; //не санкционированный доступ к данным
 
+        Employee employee3 = new
+                Employee("Vasya", 200000, "middle QA Engineer", 40);
+
         System.out.println(employee1.getName() + " " + employee2.getName());
         System.out.println(employee1.getBonus());
         System.out.println(employee2.getBonus());
