@@ -1,18 +1,19 @@
 package Utilita;
 
 /**
- * Java 1. Lesson 4
+ * Java 1. Lesson 5 + 6
  *
  * @author MadMopuse
- * @version 16.04.2022 (Lesson 5)
+ * @version 02.05.2022 (Lesson 6)
  *
  */
 
 //public - публичный, доступный из любой части прогрмаммы
-//protected-default - защищенный/базовый, доступ только из того же самого package*a*
+//protected - защищенный/базовый, доступ только из того же самого package*a*, наследники класса
+//default - защищенный/базовый, доступ только из того же самого package*a*
 //private - приватный, доступ только внутри класса и нигде больше
 
-public class Employee {
+public abstract class Employee {
     private String name;
     private int salary;
     private String profession;
@@ -24,10 +25,10 @@ public class Employee {
     private final String company = "Cows&Dogs";
 
 
-    public Employee(String name, int salary, String profession, int age) {
+    public Employee(String name, int salary, int age) {
         this.name = name;
         this.salary = salary;
-        this.profession = profession;
+        //this.profession = profession;
         this.age = age;
         //System.out.println("Count of employee before changing " + numOfEmployees);
         numOfEmployees++;
@@ -71,11 +72,12 @@ public class Employee {
     }
 
     /*
-    public Utilita.Employee(int num) { //конструктор - метод, который вызывается не на прямую, а когда создается новый экзмпляр класса
+    public Utilita.Homework5.Employee(int num) { //конструктор - метод, который вызывается не на прямую, а когда создается новый экзмпляр класса
         System.out.println("The employee " + num + " is initialized" );
     }*/
 
-    protected int getBonus() {
+    public abstract int getBonus(); /*{
         return (int) (salary * 1.5);
-    }
+    }*/
+
 }
