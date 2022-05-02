@@ -8,7 +8,7 @@ package Lesson6;
  *
  */
 
-public class main {
+public class Main {
     public static void main(String[] args) {
         DogAnimal animal1 = new DogAnimal("Dog", "Bobik", 5);
             animal1.getLongOfRun(50);
