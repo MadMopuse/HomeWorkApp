@@ -1,4 +1,4 @@
-package Java2.Java2lesson1.Java2lesson2;
+package Java2.Java2lesson2;
 
 public class MyArraySizeException extends Exception {
 
