@@ -1,7 +1,5 @@
-package Java2lesson3;
+package Java2.lesson3;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class lesson3 {
