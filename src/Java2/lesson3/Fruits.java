@@ -1,4 +1,4 @@
-package Java2lesson3;
+package Java2.lesson3;
 
 public class Fruits {
 

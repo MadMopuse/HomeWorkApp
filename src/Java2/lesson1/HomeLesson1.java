@@ -1,4 +1,4 @@
-package Java2.Java2lesson1;
+package Java2.lesson1;
 
 /**
  * Java 2. HomeLesson1

@@ -1,4 +1,4 @@
-package Java2.Java2lesson1;
+package Java2.lesson1;
 
 public class Barrier {
 
