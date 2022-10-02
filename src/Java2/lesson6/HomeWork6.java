@@ -6,7 +6,7 @@ import okhttp3.Request;
 
 import java.io.IOException;
 
-public class Demo_HW {
+public class HomeWork6 {
 
     private static final String BASE_HOST = "dataservice.accuweather.com";
     private static final String FORECAST = "forecasts";
@@ -15,7 +15,9 @@ public class Demo_HW {
     private static final String FORECAST_PERIOD = "5day";
 
     private static final String SAINT_PETERSBURG_KEY = "474212_PC";
-    private static final String API_KEY = "0d1tNZJPfzzT3qGokM18FGGxAUpt7hpj";
+
+    //api-key from my account from https://developer.accuweather.com/
+    private static final String API_KEY = "gUFLDVvorvAKJ7bi8UyBBA6md5M8eDAb";
 
     public static void main(String[] args) throws IOException {
 
