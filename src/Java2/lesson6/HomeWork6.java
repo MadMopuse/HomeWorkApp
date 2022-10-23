@@ -1,51 +1,40 @@
 package Java2.lesson6;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 
 import java.io.IOException;
+import java.util.Scanner;
 
 public class HomeWork6 {
 
-    private static final String BASE_HOST = "dataservice.accuweather.com";
-    private static final String FORECAST = "forecasts";
-    private static final String API_VERSION = "v1";
-    private static final String FORECAST_TYPE = "daily";
-    private static final String FORECAST_PERIOD = "5day";
+    public static int CURRENT_DAY = 1;
+    public static int FIVE_DAYS = 5;
+    public static int EXIT_OF_PROCESS = 0;
 
-    private static final String SAINT_PETERSBURG_KEY = "474212_PC";
 
-    //api-key from my account from https://developer.accuweather.com/
-    private static final String API_KEY = "gUFLDVvorvAKJ7bi8UyBBA6md5M8eDAb";
 
     public static void main(String[] args) throws IOException {
+        Scanner scanner = new Scanner(System.in);
 
-        OkHttpClient client = new OkHttpClient();
+        while (true) {
+            System.out.println("Input: \n 1 - today weather \n 5 - weather for five days \n 0 - for exit");
 
-        // Сегментированное построение URL
-        HttpUrl url = new HttpUrl.Builder()
-            .scheme("http")
-            .host(BASE_HOST)
-            .addPathSegment(FORECAST)
-            .addPathSegment(API_VERSION)
-            .addPathSegment(FORECAST_TYPE)
-            .addPathSegment(FORECAST_PERIOD)
-            .addPathSegment(SAINT_PETERSBURG_KEY)
-            .addQueryParameter("apikey", API_KEY)
-            .addQueryParameter("language", "ru-ru")
-            .addQueryParameter("metric", "true")
-            .build();
+            if (scanner.hasNextInt()) {
+                Integer countDay = scanner.nextInt();
+                if (countDay.equals(EXIT_OF_PROCESS)) {
+                    System.exit(0);
+                } else if (countDay.equals(CURRENT_DAY) || countDay.equals(FIVE_DAYS)) {
+                    WeatherProcessor.getWeather(countDay);
+                } else {
+                    System.out.println("You text " + countDay + "\nRestart and try 1 or 5 or 0. ");
+                }
+            } else {
+                System.out.println("Restart and try 1 or 5 or 0. ");
 
-        System.out.println(url.toString());
-
-        // При необходимости указать заголовки
-        Request requesthttp = new Request.Builder()
-            .addHeader("accept", "application/json")
-            .url(url)
-            .build();
-
-        String jsonResponse = client.newCall(requesthttp).execute().body().string();
-        System.out.println(jsonResponse);
+            }
+        }
     }
 }
