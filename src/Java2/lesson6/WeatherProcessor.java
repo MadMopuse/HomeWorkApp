@@ -23,6 +23,9 @@ public class WeatherProcessor {
 
     //api-key from my account from https://developer.accuweather.com/
     private static final String API_KEY = "gUFLDVvorvAKJ7bi8UyBBA6md5M8eDAb";
+    private static String pattern = "dd-MM-yyyy";
+    private static SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+
     public static void getWeather(int dayCount) throws IOException {
 
         OkHttpClient client = new OkHttpClient();
@@ -55,20 +58,33 @@ public class WeatherProcessor {
         WeatherResponse weatherResponse = objectMapper.readValue(jsonResponse, WeatherResponse.class);
         //System.out.println(weatherResponse.getHeadline().getText());
 
+
         if (dayCount == CURRENT_DAY){
             System.out.println("Current weather: " + weatherResponse.getHeadline().getText() +
                     "\nMin Temperature " + weatherResponse.getDailyForecasts()[0].getTemperature().getMinimumTemperature().getValueAndUnit() +
                     "\nMax Temperature " + weatherResponse.getDailyForecasts()[0].getTemperature().getMaximumTemperature().getValueAndUnit());
+            saveResponse(weatherResponse);
         } else if (dayCount == FIVE_DAYS){
-            String pattern = "dd-MM-yyyy";
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-
             for (DailyForecast df : weatherResponse.getDailyForecasts() ){
                 System.out.println("In city Saint-Petersburg for date " + simpleDateFormat.format(df.getDate())
                         + ". Waiting: " + df.getDay().getIconPhrase()
                         + ". Min Temperature: " + df.getTemperature().getMinimumTemperature().getValueAndUnit()
                         + ". Max Temperature: " + df.getTemperature().getMaximumTemperature().getValueAndUnit());
             }
+            saveResponse(weatherResponse);
+
+        }
+
+    }
+
+
+    public static void saveResponse( WeatherResponse weatherResponse){
+
+        WeatherDataBase weatherDataBase;
+        for (DailyForecast df : weatherResponse.getDailyForecasts() ) {
+            weatherDataBase = new WeatherDataBase("Saint-Petersburg", simpleDateFormat.format(df.getDate()),
+                    df.getDay().getIconPhrase(), df.getTemperature().getMinimumTemperature().getValue());
+            WeatherDataBaseSQL.insertData(weatherDataBase);
         }
     }
 
